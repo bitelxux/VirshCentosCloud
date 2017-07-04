@@ -1,0 +1,17 @@
+#cloud-config
+
+users:
+  - default
+  - name: guest
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCsv2DJ5i5GkZcOHJ3Xakub9MWHrYzXgTNT0kWDjh0slEkECqkMZkiRWmkMUPn9/wf+dip0hlPtxWeOruZe8Nssu+aE/vkxWc1wLvBsINVVXiPmptFDo6jJTG0zlR8tuRyVvptouOnTrg30Z3CvJcIxOPUFivMaEYofnfa12wNOmrOBb1vXrFpQMNhPemPD+49fUc5JxO5+oiNfZN3wbU9jU6UjyxkjwoT0OXjg6Z6nCKKajNG0N6GVQod5Y/baPqWsTEA+Z5ybGVB6e4j9iIFYRfq51AHYKlKL70MvftWIWnH86I7NF5VnNS70/QKLt5wOLBVVNoNsqXD4h+Ak/XX3 root@cnn
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDbsQpGm5jMsMDd4igGib1dVXtg2nDZw/cOep6BFH2pg6i+wvb56ceJdKYthRBS+DrwswhoI0K0caujel/+fN9561QVmPgeOzmyn6SsYsDDwPtCOZdI/bKhMe46Q32JZm1u+WY/iP0dfjea6MAwqMvbHUbdQ/8OTMrNUdO8GQ99zq8k5E6dRSgqcBEeZNPU1Lk+VbJEQ18imHajBkJ6x9ZpQF+AoWjfI39i8V5CpiMJszLMILiVFNwErk8fmrjfhl2f1DdfthaY7u3NIxB7EOUh50PnE5khWedLgPnGJkb5uhbjEU4RlXOmJKi3yRWFbLN/uEYdLF8wrLpwKrkVr853 cnn@cnn
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+
+chpasswd:
+  list: |
+    guest:passw0rd
+    root:passw0rd
+  expire: False
+
+final_message: "The system is up, after $UPTIME seconds"
